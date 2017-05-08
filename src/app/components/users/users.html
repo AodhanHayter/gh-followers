@@ -1,0 +1,15 @@
+<div class="list-group">
+  <!--<a href="#" class="list-group-item" ng-repeat="user in $ctrl.users">{{ user.login }}</a>-->
+  <div class="users col-sm-12 col-md-6 list-group-item" ng-repeat="user in $ctrl.users">
+    <div class="avatar col-xs-6">
+      <a ui-sref="user({ login: user.login })">
+        <img ng-src="{{ user.avatar_url }}" alt="" class="img-thumbnail">
+      </a>
+    </div>
+    <div class="info col-xs-6">
+      <h3>
+        <a ui-sref="user({ login: user.login })">{{ user.login }}</a>
+      </h3>
+    </div>
+  </div>
+</div>

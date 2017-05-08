@@ -3,15 +3,15 @@ export default routesConfig;
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
-  $urlRouterProvider.otherwise('/followers');
+  $urlRouterProvider.otherwise('/users');
 
   $stateProvider
     .state('users', {
-      url: '/followers',
+      url: '/users',
       component: 'users'
     })
     .state('user', {
-      url: '/followers/:login',
-      component: 'users'
+      url: '/user/:login',
+      component: 'user'
     });
 }

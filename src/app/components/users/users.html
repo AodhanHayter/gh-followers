@@ -2,7 +2,7 @@
   <!--<a href="#" class="list-group-item" ng-repeat="user in $ctrl.users">{{ user.login }}</a>-->
   <div class="users col-sm-12 col-md-6 list-group-item" ng-repeat="user in $ctrl.users">
     <div class="avatar col-xs-6">
-      <a href="">
+      <a ui-sref="user({ login: user.login })">
         <img ng-src="{{ user.avatar_url }}" alt="" class="img-thumbnail">
       </a>
     </div>

@@ -9,4 +9,6 @@ class UsersService {
     };
   }
 }
-export default UsersService;
+export default angular.module('services.users-service', [])
+  .service('usersService', UsersService)
+  .name;

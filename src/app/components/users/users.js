@@ -1,15 +1,15 @@
 import './users.scss';
 
 class UsersComponent {
-  constructor(usersService, $log) {
+  constructor(usersService) {
     this.usersService = usersService;
-    this.log = $log;
     this.usersService.getUsers()
       .then(re => {
         this.users = re.data;
       });
   }
 }
+UsersComponent.$inject = ['usersService'];
 export const Users = {
   template: require('./users.html'),
   controller: UsersComponent,

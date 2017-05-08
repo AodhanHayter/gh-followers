@@ -7,12 +7,18 @@ class UserComponent {
       this.usersService.getUser($stateParams.login)
         .then(re => {
           this.user = re.data;
+        })
+        .catch(err => {
+          if (err.status === 404) {
+            this.notFound = true;
+          }
         });
     } else {
       $state.go('users');
     }
   }
 }
+UserComponent.$inject = ['usersService', '$stateParams', '$state', '$log'];
 export const User = {
   template: require('./user.html'),
   controller: UserComponent,

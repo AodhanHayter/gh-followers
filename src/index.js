@@ -1,20 +1,19 @@
 import angular from 'angular';
 
-import {Users} from './app/components/users/users';
-import {User} from './app/components/user/user';
-import UsersService from './app/services/users.service';
 import 'angular-ui-router';
 import routesConfig from './routes';
 
 import './index.scss';
+import {Users} from './app/components/users/users';
+import {User} from './app/components/user/user';
+import usersService from './app/services/users.service';
 
-export const app = 'app';
-
-angular
-  .module(app, [
-    'ui.router'
+export default angular
+  .module('app', [
+    'ui.router',
+    usersService
   ])
   .config(routesConfig)
   .component('users', Users)
   .component('user', User)
-  .service('usersService', UsersService);
+  .name;

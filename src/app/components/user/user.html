@@ -1,5 +1,5 @@
 <div class="list-group">
-  <div class="user col-sm-12 col-md-8 col-md-offset-2 list-group-item">
+  <div class="user col-sm-12 col-md-8 col-md-offset-2 list-group-item" ng-if="!$ctrl.notFound">
     <div class="avatar col-xs-6">
       <img ng-src="{{ $ctrl.user.avatar_url }}" alt="" class="img-thumbnail">
       <h2>{{ $ctrl.user.login }}</h2>
@@ -16,5 +16,8 @@
         </li>
       </ul>
     </div>
+  </div>
+  <div class="user col-sm-12 col-md-8 col-md-offset-2 list-group-item" ng-if="$ctrl.notFound">
+    User not found.
   </div>
 </div>

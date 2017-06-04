@@ -12,6 +12,10 @@ app.config(function($routeProvider){
             controller: 'followers_controller',
             templateUrl: 'followers.html'
         })
+        .when('/404', {
+            controller: 'error_controller',
+            templateUrl: '404.html'
+        })
         .otherwise({
             redirectTo: "/"
         })
@@ -55,6 +59,10 @@ app.controller('followers_controller', function($scope, $http, $location, $route
     $scope.go_back = function(){
         $location.path('/')
     }
+})
 
-
+app.controller('error_controller', function($scope, $location, $timeout){
+    $timeout(function(){
+        $location.path('/')
+    },3000)
 })

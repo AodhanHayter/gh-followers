@@ -1,0 +1,47 @@
+<div class="container" ng-controller="followers_controller">
+  <div class="row">
+    <div class="col-xs-12">
+        <h1 class="text-center">Welcome to gh-followers app</h1>
+    </div>
+    <div class="col-sm-offset-2 col-sm-8">
+          <button class="btn btn-primary pull-right" ng-click="go_back()"
+                  style="margin-bottom: 10px;" type="button">
+            <span class="glyphicon glyphicon-menu-left"></span>
+            Go back
+          </button>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
+      <div class="row">
+        <div class="col-sm-4">
+          <img  alt="User avatar" class="img-circle img-responsive" src="{{user.avatar_url}}">
+          <h3>{{user.login}}</h3>
+          <span><strong>{{user.name}}</strong></span><br>
+          <span class="text-muted">{{user.location}}</span><br><br>
+        </div>
+        <div class="col-sm-8">
+          <div ng-repeat="follower in followers_list">
+            <!-- iter -->
+              <div class="row">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <div class="col-sm-3">
+                        <img alt="Follower avatar" class="img-circle img-responsive"
+                             src="{{follower.avatar_url}}" >
+                      </div>
+                      <div class="col-sm-9">
+                        <h3>{{follower.login}}</h3>
+                        <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                        <a href="{{follower.html_url}}">{{follower.html_url}}</a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <!-- ./iter -->  
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>

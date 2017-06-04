@@ -1,0 +1,49 @@
+<div class="container" ng-controller="main_controller">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="text-center">Welcome to gh-followers app</h1>
+        </div>
+    </div>
+    <div ng-repeat="user in users_list">
+        <!-- iter -->
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img  alt="User avatar" class="img-circle img-responsive"
+                                      src="{{user.avatar_url}}">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h3>{{user.login}}</h3>
+                                        <span><strong>{{user.name}}</strong></span><br>
+                                        <span class="text-muted">{{user.location}}</span>
+                                        <br><br>
+                                        <p ng-bind="user.bio || 'No bio available '"></p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h3></h3>
+                                        <span>Public repos</span>
+                                        <span class="badge">{{user.public_repos}}</span><br>
+                                        <span>Public gists</span>
+                                        <span class="badge">{{user.public_gists}}</span><br>
+                                        <span>Followers</span>
+                                        <span class="badge">{{user.followers}}</span><br>
+                                        <span>following</span>
+                                        <span class="badge">{{user.following}}</span><br><br>
+                                        <a class="btn btn-primary"
+                                           ng-href="#/{{user.login}}/followers">View followers</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ./ iter -->
+    </div>
+</div>

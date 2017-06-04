@@ -9,6 +9,7 @@ app.config(function($routeProvider){
             templateUrl: 'main.html'
         })
         .when('/:github_user/followers', {
+            controller: 'followers_controller',
             templateUrl: 'followers.html'
         })
         .otherwise({
@@ -18,7 +19,6 @@ app.config(function($routeProvider){
 
 app.controller('main_controller', function($scope, $http, $location){
     $scope.users_list = []
-
     $http.get('https://api.github.com/users')
         .then(function success(response){
             var github_users = response.data
@@ -34,4 +34,27 @@ app.controller('main_controller', function($scope, $http, $location){
         },function error(response){
             $location.path('/404')
         })
+})
+
+app.controller('followers_controller', function($scope, $http, $location, $routeParams){
+    var github_user = $routeParams.github_user
+    $http.get('https://api.github.com/users/'+github_user)
+        .then(function success(response){
+            $scope.user = response.data
+        },function error(response){
+            $location.path('/404')
+        })
+
+    $http.get('https://api.github.com/users/'+ github_user +'/followers')
+        .then(function success(response){
+            $scope.followers_list = response.data
+        },function error(response){
+            $location.path('/404')
+        })
+
+    $scope.go_back = function(){
+        $location.path('/')
+    }
+
+
 })

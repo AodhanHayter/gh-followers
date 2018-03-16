@@ -1,0 +1,19 @@
+html{
+    padding-top: 10px;
+    text-align: center;
+}
+
+.img-avatar{
+    width: 100%;
+}
+
+.img-avatar figure{
+    float: right;
+}
+
+.ux-scroll{
+    height: 38rem;
+    overflow: scroll;
+    padding-top: 0px;
+    margin-top: 10px;
+}

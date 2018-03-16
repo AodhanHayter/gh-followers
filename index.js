@@ -1,3 +1,3 @@
 'use strict'
 
-const app = angular.module('followersApp', [])
+const app = angular.module('followersApp', []);

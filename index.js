@@ -9,7 +9,7 @@ $(function(){
 		$('#list').empty();
 
 		users.forEach(function(user){
-			$('#list').append('<li><div class="user-button" data-id-user="' + user.id + '">' + user.id + ' - ' + user.login + '</div></li>');
+			$('#list').append('<li><div class="user-button" data-id-user="' + user.id + '" data-login="' + user.login + '" data-followers-url="' + user.followers_url + '" data-toggle="modal" data-target="#followersModal">' + user.id + ' - ' + user.login + '</div></li>');
 		})
 	});
 });

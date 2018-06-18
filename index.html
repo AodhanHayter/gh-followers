@@ -288,99 +288,8 @@
 				color: hsla(212, 16%, 40%, 1);
 			}
 
-			#portfolio{
-				padding: 100px 0 100px 0;
-			}
-
-			#portfolio .item .title{
-				border-bottom: 1px solid black;
-				text-align: center;
-			}
-
-			#portfolio .item .picture{
-				cursor: pointer;
-				position: relative;
-			}
-
-			#portfolio .item .picture:hover::after{
-				width: 100%;
-				height: 100%;
-				content: '\A Click to see more';
-				white-space:pre;
-				color: white;
-				font-weight: 900;
-				font-size: 1em;
-				text-align: center;
-				position: absolute;
-				top: 0;
-				left: 0;
-				background: rgba(0, 0, 0, 0.5);
-			}
-
-			#portfolio .item .picture img{
-				width: 100%;
-			}
-
-			#aboutus{
-				padding: 150px 100px 100px 100px;
-				background: hsla(212, 15.6%, 40%, 1);
-			}
-
-			#aboutus .aboutus-info, #aboutus .introduction{
-				background: white;
-				padding: 25px;
-				margin: 0 0 10px 0;
-				flex-grow: 1;
-			}
-
-			#aboutus .introduction{
-				height: 100%;
-			}
-
-			#aboutus p{
-				color: white;
-			}
-
-			#aboutus .our-team{
-				padding: 50px 0 100px 0;
-				width: 250px;
-				margin: auto;
-			}
-
-			#aboutus .staff-member{
-				margin: 50px 0 100px 0;
-				width: 200px;
-				text-align: center;
-			}
-
-			#aboutus .staff-member .picture{
-				width: 190px;
-				height: 190px;
-				border-radius: 50%;
-				background: white;
-				margin: auto;
-				overflow: hidden;
-				filter: grayscale(100%) contrast(130%) brightness(1.1);
-			}
-
-			#aboutus .staff-member .picture img{
-				width: 100%;
-			}
-
-			#contact-info{
-				width: 400px;
-				height: 170px;
-				background: white;
-				margin: 0 0 0 100px;
-				border-left: 5px solid #edb534;
-			}
-
-			address{
-				padding: 15px;
-			}
-
-			#services{
-				padding: 100px 0 100px 0;
+			#followers{
+				padding: 50px 0 0 50px;
 			}
 
 			.white-space{
@@ -389,17 +298,26 @@
 
 			.yellow-bg{
 				background: hsla(40, 119%, 67%, 1);
-				padding: 10px;
 			}
 
 			.blue-bg{
 				background: hsla(212, 15.6%, 40%, 1);
-				padding: 10px;
+			}
+
+			.blue-color{
+				color: hsla(212, 15.6%, 40%, 1);
 			}
 
 			.user-button:hover{
 				text-decoration: underline;
 				cursor: pointer;
+			}
+
+			#list{
+				list-style: none;
+				color: hsla(212, 15.6%, 30%, 1);
+				width: 550px;
+				margin: auto;
 			}
 		</style>
 	</head>
@@ -432,7 +350,8 @@
 										<div class="slide-background" style="background-image: url('public/images/slide1.jpg')"></div>
 
 										<div class="slide-text">
-											<h1>Find whos watching you!</h1>
+											<h1>Find whos following a<br />
+											<span class="blue-color yellow-bg">GitHub</span> User with ease!</h1>
 											<p>From the comfort of your mobile, your desktop or ipad. It's totally responsive!</p>
 										</div>
 									</div>
@@ -488,12 +407,10 @@
 				</div>
 			</div>
 
+			<div class="white-space"></div>
+
 			<div class="row no-gutters">
 				<div class="col-sm">
-					<div id="user">
-						<h1>Welcome <span class="blue-bg">YouHaveNoSkill</span></h1>
-					</div>
-
 					<ul id="list">
 					</ul>
 				</div>
@@ -501,6 +418,32 @@
 
 			<div class="white-space"></div>
 		</article>
+
+		<!-- Modal -->
+		<div class="modal fade" id="followersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="followersTitle">Followers from YouHaveNoSkill</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					
+					<div class="modal-body">
+						<ul>
+							<li>1 - Martin</li>
+							<li>2 - Jose</li>
+							<li>3 - Mario</li>
+						</ul>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 		<script src="index.js"></script>

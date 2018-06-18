@@ -4,7 +4,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Followers</title>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -122,8 +123,6 @@
 				margin: 0;
 				padding: 0;
 				position: relative;
-				overflow: hidden;
-				width: 100vw;
 			}
 
 			.container-fluid {
@@ -135,7 +134,7 @@
 
 			header{
 				width: 100%;
-				height: calc(100vh - 100px);
+				/*height: calc(100vh - 100px);*/
 				background: : hsla(212, 15.6%, 40%, 1);
 			}
 
@@ -390,22 +389,28 @@
 
 			.yellow-bg{
 				background: hsla(40, 119%, 67%, 1);
+				padding: 10px;
 			}
 
 			.blue-bg{
 				background: hsla(212, 15.6%, 40%, 1);
+				padding: 10px;
+			}
+
+			.user-button:hover{
+				text-decoration: underline;
+				cursor: pointer;
 			}
 		</style>
 	</head>
 
 	<body id="home">
-		<script src="https://code.angularjs.org/1.5.3/angular.js"></script>
-		<script src="index.js"></script>
 
 		<!-- Menu -->
 		<nav>
 			<ul class="flex-row">
 				<li class="flex-col"><a href="#home" class="logo"><img src="public/images/github.png" height="100%" /></a></li>
+				<li class="flex-col"><a href="#followers">Show me my list NOW!</a></li>
 			</ul>
 		</nav>
 
@@ -424,7 +429,6 @@
 							<div class="carousel-item active">
 								<div class="flex-row">
 									<div class="flex-col item-align-mid-center">
-										<!-- <img class="slide-background" src="slide1.jpg" /> -->
 										<div class="slide-background" style="background-image: url('public/images/slide1.jpg')"></div>
 
 										<div class="slide-text">
@@ -438,7 +442,6 @@
 							<div class="carousel-item">
 								<div class="flex-row">
 									<div class="flex-col item-align-bot-left">
-										<img class="slide-background" src="slide2.jpg" />
 										<div class="slide-background" style="background-image: url('public/images/slide2.jpg')"></div>
 
 										<div class="slide-text">
@@ -452,12 +455,11 @@
 							<div class="carousel-item">
 								<div class="flex-row">
 									<div class="flex-col item-align-bot-right">
-										<!-- <img class="slide-background" src="slide3.jpg" /> -->
 										<div class="slide-background" style="background-image: url('public/images/slide3.jpg')"></div>
 
 										<div class="slide-text">
 											<h1>No more handwriting</h1>
-											<p>Copy your list to clipboard with the power of one button!<br />
+											<p>Copy your list to clipboard with the power of one button :D!<br />
 										</div>
 									</div>
 								</div>
@@ -476,5 +478,31 @@
 				</div>
 			</div>
 		</header>
+
+		<article id="followers" class="container">
+			<div class="white-space"></div>
+
+			<div class="row no-gutters">
+				<div class="col-sm my-auto text-center">
+					<img src="public/images/github1.png" width="40%"></div>
+				</div>
+			</div>
+
+			<div class="row no-gutters">
+				<div class="col-sm">
+					<div id="user">
+						<h1>Welcome <span class="blue-bg">YouHaveNoSkill</span></h1>
+					</div>
+
+					<ul id="list">
+					</ul>
+				</div>
+			</div>
+
+			<div class="white-space"></div>
+		</article>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="index.js"></script>
 	</body>
 </html>

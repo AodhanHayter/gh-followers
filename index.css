@@ -296,6 +296,10 @@
 				100% { transform: rotate(360deg); }
 			}
 
+			#tech{
+				padding-top: 150px;
+			}
+
 			#tech .blue-bg
 			{
 				padding: 3px 10px;

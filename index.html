@@ -1,14 +1,228 @@
 <!DOCTYPE html>
-<html ng-app="followersApp" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Followers</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-</head>
-<body>
-  <h2>Followers</h2>
-  <script src="https://code.angularjs.org/1.5.3/angular.js"></script>
-  <script src="index.js"></script>
-</body>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Followers</title>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+		<script type="text/javascript" src="public/scripts/sticky-kit.js"></script>
+		<script type="text/javascript" src="node_modules/animejs/anime.min.js"></script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+		<link rel="stylesheet" href="index.css" type="text/css" />
+	</head>
+
+	<body id="home" ng-app="followersApp" ng-controller="fController">
+
+		<!-- Menu -->
+		<nav>
+			<ul class="flex-row">
+				<li class="flex-col"><a href="#home" class="logo"><img src="public/images/github.png" height="100%" /></a></li>
+				<li class="flex-col"><a href="#followers">Show me my list NOW!</a></li>
+				<li class="flex-col"><a href="#tech">How did you do this?</a></li>
+			</ul>
+		</nav>
+
+		<!-- SLIDER -->
+		<header class="container-fluid d-none d-lg-block">
+			<div class="row no-gutters">
+				<div class="col-sm">
+					<div id="slider" class="carousel slide" data-ride="carousel" data-pause="false">
+						<ol class="carousel-indicators">
+							<li data-target="#slider" data-slide-to="0" class="active"></li>
+							<li data-target="#slider" data-slide-to="1"></li>
+							<li data-target="#slider" data-slide-to="2"></li>
+						</ol>
+
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="flex-row">
+									<div class="flex-col item-align-mid-center">
+										<div class="slide-background" style="background-image: url('public/images/slide1.jpg')"></div>
+
+										<div class="slide-text">
+											<h1>Find whos following a<br />
+											<span class="blue-color yellow-bg">GitHub</span> User with ease!</h1>
+											<p>From the comfort of your mobile, your desktop or ipad. It's totally responsive, now go resize this window FOR REAL!</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div class="carousel-item">
+								<div class="flex-row">
+									<div class="flex-col item-align-bot-left">
+										<div class="slide-background" style="background-image: url('public/images/slide2.jpg')"></div>
+
+										<div class="slide-text">
+											<h1>Beautiful Design</h1>
+											<p>Forget those boring lists, because we know you love <i>colorfull lists</i></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="carousel-item">
+								<div class="flex-row">
+									<div class="flex-col item-align-bot-right">
+										<div class="slide-background" style="background-image: url('public/images/slide3.jpg')"></div>
+
+										<div class="slide-text">
+											<h1>No more handwriting</h1>
+											<p>Copy your list to clipboard with the power of one button :D!<br />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<article id="mobile-header" class="container-fluid d-lg-none">
+			<div class="row no-gutters">
+				<div class="col-sm mobile-slide">
+					<div class="mobile-slide-background" style="background-image: url('public/images/slide1.jpg')"></div>
+
+					<div class="mobile-slide-text">
+						<h1>Find whos following a<br />
+						<span class="blue-color yellow-bg">GitHub</span> User with ease!</h1>
+						<p>From the comfort of your mobile, your desktop or ipad. It's totally responsive, now go resize this window FOR REAL!</p>
+					</div>
+				</div>
+			</div>
+				
+			<div class="row no-gutters">
+				<div class="col-sm mobile-slide">
+					<div class="mobile-slide-background" style="background-image: url('public/images/slide2.jpg')"></div>
+
+					<div class="mobile-slide-text">
+						<h1>Beautiful Design</h1>
+						<p>Forget those boring lists, because we know you love <i>colorfull lists</i></p>
+					</div>
+				</div>
+			</div>
+					
+			<div class="row no-gutters">
+				<div class="flex-col mobile-slide">
+					<div class="mobile-slide-background" style="background-image: url('public/images/slide3.jpg')"></div>
+
+					<div class="mobile-slide-text">
+						<h1>No more handwriting</h1>
+						<p>Copy your list to clipboard with the power of one button :D!<br />
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<div id="alerta" class="alert alert-warning alert-dismissible fade show" role="alert">
+			Your List is now in clipboard.
+			
+			<button type="button" class="close" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+
+		<article id="followers" class="container">
+			<div class="white-space"></div>
+
+			<div class="row no-gutters">
+				<div class="col-sm my-auto text-center">
+					<img src="public/images/github1.png" width="40%"></div>
+				</div>
+			</div>
+
+			<div class="white-space"></div>
+
+			<div class="row no-gutters">
+				<div class="col-sm">
+					<button id="copy-button" class="btn yellow-bg blue-color">Copy to clipboard!</button><br />
+					<br />
+					<ul id="list">
+						<li ng-repeat="user in users">{{user.id}} - {{user.login}} <span class="link-followers" data-user-id="{{user.id}}" data-user-login="{{user.login}}">{{user.followers_url}}</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="white-space"></div>
+		</article>
+
+		<!-- Modal -->
+		<div class="modal fade" id="followersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="followersTitle">Followers from <span class="blue-bg yellow-color" style="padding: 10px;">{{ user.login }}</span></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					
+					<div class="modal-body">
+						<ul id="followersList">
+							<li ng-repeat="user in user.followers">{{user.id}} - {{user.login}} <span class="link-followers" data-user-id="{{user.id}}" data-user-login="{{user.login}}">{{user.followers_url}}</span></li>
+						</ul>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="light-box">
+			<div class="loader"></div>
+		</div>
+
+		<section class="container" id="tech">
+			<div class="row">
+				<div class="col-sm">
+					<h1 class="blue-color">Used technologies for this project.</h1>
+					<div class="white-space"></div>
+					<p><b class="yellow-color blue-bg">Angular JS 1.6.9 (Version 2 was not allowed):</b> Used to load async data with <b class="blue-color">$http</b> service and retrive an initial list of <b class="blue-bg yellow-color">Github</b> Users, and a list of their followers. The list was displayed by Angular using <b class="blue-color">ng-repeat</b> just passing the response data to the <b class="blue-color">$scope</b> variables</p>
+					<p><b class="yellow-color blue-bg">JQuery 3.3.1</b> For easier DOM manipulation</p>
+					<p><b class="yellow-color blue-bg">Pooper 1.14.3</b> Required by <b class="blue-color">Bootstrap</b> slider component</p>
+					<p><b class="yellow-color blue-bg">Bootstrap 4</b> To use the new <b class="blue-color">Flex</b> capabilites in grid layout, responsive design and that beautiful slider</p>
+					<p><b class="yellow-color blue-bg">Sticky-Kit JS 4</b> For that sticky header.</p>
+					<p><b class="yellow-color blue-bg">Anime JS</b> For those funny animations applied to the captions inside the slides.</p>
+					<p>
+						- Also used some other tools or pretty effects, like smooth scrolling for links<br />
+						- Photoshop CS6 to create the the logo image<br />
+						- Native CSS Parallax Fixed Background<br />
+						- A loading gif taken from <a href="https://www.w3schools.com/howto/howto_css_loader.asp" target="_blank">w3schools.com</a>
+						to increase user experience when connection its slow<br />
+						- Modals to prevent user from leaving the page and go back to the initial state list as required.
+						<br />
+						<br />
+						<span class="text-danger">- Only found an issue with the clipboard functionality, it seems to work the first time.</span>
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="white-space"></div>
+		<div class="white-space"></div>
+		<div class="white-space"></div>
+		<div class="white-space"></div>
+					
+		<script src="index.js"></script>
+	</body>
 </html>

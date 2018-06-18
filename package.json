@@ -1,0 +1,19 @@
+{
+  "name": "gh-followers",
+  "version": "1.0.0",
+  "description": "Github Followers List",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YouHaveNoSkill/gh-followers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YouHaveNoSkill/gh-followers/issues"
+  },
+  "homepage": "https://github.com/YouHaveNoSkill/gh-followers#readme"
+}

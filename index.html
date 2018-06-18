@@ -1,14 +1,478 @@
 <!DOCTYPE html>
+
 <html ng-app="followersApp" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Followers</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-</head>
-<body>
-  <h2>Followers</h2>
-  <script src="https://code.angularjs.org/1.5.3/angular.js"></script>
-  <script src="index.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Followers</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+		<script type="text/javascript" src="public/scripts/sticky-kit.js"></script>
+		<script type="text/javascript" src="node_modules/animejs/anime.min.js"></script>
+
+		<script type="text/javascript">
+			$(window).on('load', function(){
+				// alert('test');
+				/* ANIMATION */
+				var midCenter = anime({
+					targets: '.item-align-mid-center .slide-text',
+					easing: 'easeInOutQuad',
+					opacity: 0,
+					scale: 2,
+					direction: 'reverse',
+					autoplay: false,
+					duration: 550
+				});
+
+				var botLeft = anime({
+					targets: '.item-align-bot-left .slide-text',
+					easing: 'easeInOutQuad',
+					opacity: 0,
+					// scale: 1.5,
+					// translateX: -200,
+					translateY: 100,
+					direction: 'reverse',
+					autoplay: false,
+					duration: 550
+				});
+
+				var botRight = anime({
+					targets: '.item-align-bot-right .slide-text',
+					easing: 'easeInOutQuad',
+					opacity: 0,
+					// scale: 1.5,
+					translateX: 200,
+					// translateY: 100,
+					direction: 'reverse',
+					autoplay: false,
+					duration: 550
+				});
+
+				function animateSliderTexts(alignment){
+					switch(alignment){
+						case 'midCenter':
+							midCenter.restart();
+							midCenter.begin = () => {
+								setTimeout(function(status) {
+									$('.slide-text').css({display: 'block'});
+								}, 0);
+							};
+						break;
+						
+						case 'botLeft':
+							botLeft.restart();
+							botLeft.begin = () => {
+								setTimeout(function(status) {
+									$('.slide-text').css({display: 'block'});
+								}, 0);
+							};
+						break;
+
+						case 'botRight':
+							botRight.restart();
+							botRight.begin = () => {
+								setTimeout(function(status) {
+									$('.slide-text').css({display: 'block'});
+								}, 0);
+							};
+						break;
+					};
+				}
+
+				midCenter.begin = () => {
+					setTimeout(function(status) {
+						$('.slide-text').css({display: 'block'});
+					}, 0);
+				};
+				setTimeout(midCenter.play, 1000);
+
+
+				/* SLIDER EVENTS */
+
+				$('#slider').on('slide.bs.carousel', function(){
+					$('.slide-text').css({display: 'none'});
+				});
+
+				$('#slider').on('slid.bs.carousel', function(e){
+					var sliderText = $(e.relatedTarget).find('[class*="item-align"]');
+					var alignment = null;
+
+					alignment = (sliderText.hasClass('item-align-mid-center') ? 'midCenter' : alignment);
+					alignment = (sliderText.hasClass('item-align-bot-left') ? 'botLeft' : alignment);
+					alignment = (sliderText.hasClass('item-align-bot-right') ? 'botRight' : alignment);
+
+					animateSliderTexts(alignment);
+				});
+
+
+				/* STICKY KIT */
+				$('nav').stick_in_parent();
+
+				/* SCROLL PROGRESS */
+				var pageHeight = $(document).height();
+				$('currentScroll').text($(document).scrollHeigh)
+			});
+		</script>
+
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				position: relative;
+			}
+
+			.container-fluid {
+			    padding-right:0;
+			    padding-left:0;
+			    margin-right:auto;
+			    margin-left:auto
+			 }
+
+			header{
+				width: 100%;
+				height: calc(100vh - 100px);
+				background: : hsla(212, 15.6%, 40%, 1);
+			}
+
+			/* MENU */
+			nav{
+				width: 100%;
+				height: 100px;
+				position: absolute;
+				/*background: linear-gradient(#f02840, #ca0050);*/
+				/*background: #edb534e6;*/
+				background: hsla(37, 90%, 60%, 0.9);
+				/*background: rgba(240, 40, 64, 1);*/
+				/*background: rgba(140, 140, 140, 0.5);*/
+				z-index: 1;
+			}
+
+			nav ul{
+				margin: 0;
+				height: inherit;
+			}
+
+			nav ul li{
+				flex: 0 1 auto;
+				padding: 10px;
+			}
+
+			nav ul li a{
+				color: white;
+				font-weight: 500;
+				margin: auto 5px;
+			}
+
+			nav ul li a.active{
+				color: hsla(212, 16%, 40%, 1);
+			}
+
+			nav ul li a.logo{
+				height: 100%;
+				width: auto;
+			}
+
+			/* SLIDER */
+			#slider{
+				height: 100vh;
+			}
+
+			.carousel-inner, .carousel-item{
+				height: inherit;
+			}
+
+			.slide-text{
+				display: none;
+				margin: auto;
+				color: white;
+				padding: 25px;
+				background: hsla(212, 16%, 40%, 0.8);
+				opacity: 1;
+				border-radius: 5px;
+				font-size: 1em;
+			}
+
+			.slide-text p{
+				font-size: 1.2vw;
+				font-weight: 100;
+			}
+
+			.slide-background{
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				width: 100%;
+				height: 100%;
+				/*filter: brightness(75%);*/
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: fixed;
+			}
+
+			.flex-row{
+				display: flex;
+				flex-direction: row;
+				height: inherit;
+			}
+
+			.flex-col{
+				display: flex;
+				flex-direction: column;
+			}
+
+			.item-align-top-left{
+				margin: 120px auto auto 190px;
+				border-left: 2px solid hsla(40, 119%, 67%, 1);
+			}
+			
+			.item-align-top-center{
+				margin: 120% auto auto auto;
+				border-left: 2px solid hsla(40, 119%, 67%, 1);
+				border-right : 2px solid hsla(40, 119%, 67%, 1);
+			}
+			
+			.item-align-top-right{
+				margin: 120px 190px auto auto;
+				text-align: right;
+				border-right: 2px solid hsla(40, 119%, 67%, 1);
+			}
+			
+			.item-align-mid-left{
+				margin: auto;
+			}
+			
+			.item-align-mid-center{
+				margin: auto;
+			}
+			
+			.item-align-mid-right{
+				margin: auto;
+			}
+			
+			.item-align-bot-left{
+				margin: auto auto 150px 190px;
+			}
+			
+			.item-align-bot-center{
+				margin: auto;
+			}
+			
+			.item-align-bot-right{
+				margin: auto 190px 150px auto;
+			}
+
+			h1{
+				/*color: #ff20a0;*/
+				/*color: hsl(37, 90%, 60%);*/
+				color: hsla(40, 119%, 67%, 1);
+				font-weight: 900;
+				font-size: 3vw;
+			}
+
+			h1.altern{
+				color: hsla(212, 15.6%, 40%, 1);
+			}
+
+			h1.jumbo{
+				font-size: 8vw;
+				font-weight: 100;
+				font-family: fantasy;
+			}
+
+			h2{
+				color: hsla(212, 16%, 40%, 1);
+			}
+
+			#portfolio{
+				padding: 100px 0 100px 0;
+			}
+
+			#portfolio .item .title{
+				border-bottom: 1px solid black;
+				text-align: center;
+			}
+
+			#portfolio .item .picture{
+				cursor: pointer;
+				position: relative;
+			}
+
+			#portfolio .item .picture:hover::after{
+				width: 100%;
+				height: 100%;
+				content: '\A Click to see more';
+				white-space:pre;
+				color: white;
+				font-weight: 900;
+				font-size: 1em;
+				text-align: center;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.5);
+			}
+
+			#portfolio .item .picture img{
+				width: 100%;
+			}
+
+			#aboutus{
+				padding: 150px 100px 100px 100px;
+				background: hsla(212, 15.6%, 40%, 1);
+			}
+
+			#aboutus .aboutus-info, #aboutus .introduction{
+				background: white;
+				padding: 25px;
+				margin: 0 0 10px 0;
+				flex-grow: 1;
+			}
+
+			#aboutus .introduction{
+				height: 100%;
+			}
+
+			#aboutus p{
+				color: white;
+			}
+
+			#aboutus .our-team{
+				padding: 50px 0 100px 0;
+				width: 250px;
+				margin: auto;
+			}
+
+			#aboutus .staff-member{
+				margin: 50px 0 100px 0;
+				width: 200px;
+				text-align: center;
+			}
+
+			#aboutus .staff-member .picture{
+				width: 190px;
+				height: 190px;
+				border-radius: 50%;
+				background: white;
+				margin: auto;
+				overflow: hidden;
+				filter: grayscale(100%) contrast(130%) brightness(1.1);
+			}
+
+			#aboutus .staff-member .picture img{
+				width: 100%;
+			}
+
+			#contact-info{
+				width: 400px;
+				height: 170px;
+				background: white;
+				margin: 0 0 0 100px;
+				border-left: 5px solid #edb534;
+			}
+
+			address{
+				padding: 15px;
+			}
+
+			#services{
+				padding: 100px 0 100px 0;
+			}
+
+			.white-space{
+				height: 50px;
+			}
+
+			.yellow-bg{
+				background: hsla(40, 119%, 67%, 1);
+			}
+
+			.blue-bg{
+				background: hsla(212, 15.6%, 40%, 1);
+			}
+		</style>
+	</head>
+
+	<body id="home">
+		<script src="https://code.angularjs.org/1.5.3/angular.js"></script>
+		<script src="index.js"></script>
+
+		<!-- Menu -->
+		<nav>
+			<ul class="flex-row">
+				<li class="flex-col"><a href="#home" class="logo"><img src="public/images/github.png" height="100%" /></a></li>
+			</ul>
+		</nav>
+
+		<!-- SLIDER -->
+		<header class="container-fluid d-none d-md-block">
+			<div class="row no-gutters">
+				<div class="col-sm">
+					<div id="slider" class="carousel slide" data-ride="carousel" data-pause="false">
+						<ol class="carousel-indicators">
+							<li data-target="#slider" data-slide-to="0" class="active"></li>
+							<li data-target="#slider" data-slide-to="1"></li>
+							<li data-target="#slider" data-slide-to="2"></li>
+						</ol>
+
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="flex-row">
+									<div class="flex-col item-align-mid-center">
+										<!-- <img class="slide-background" src="slide1.jpg" /> -->
+										<div class="slide-background" style="background-image: url('public/slide1.jpg')"></div>
+
+										<div class="slide-text">
+											<h1>Find whos watching you!</h1>
+											<p>From the comfort of your mobile, your desktop or ipad. It's totally responsive!</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div class="carousel-item">
+								<div class="flex-row">
+									<div class="flex-col item-align-bot-left">
+										<!-- <img class="slide-background" src="slide2.jpg" /> -->
+										<div class="slide-background" style="background-image: url('public/colorful.jpg')"></div>
+
+										<div class="slide-text">
+											<h1>Beautiful Design</h1>
+											<p>Forget those boring lists, because we know you love <i>colorfull lists</i></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="carousel-item">
+								<div class="flex-row">
+									<div class="flex-col item-align-bot-right">
+										<!-- <img class="slide-background" src="slide3.jpg" /> -->
+										<div class="slide-background" style="background-image: url('public/slide3.jpg')"></div>
+
+										<div class="slide-text">
+											<h1>Copy your list</h1>
+											<p>Copy your list to clipboard with the power of one button!<br />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+	</body>
 </html>

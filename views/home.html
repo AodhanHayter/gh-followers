@@ -1,0 +1,11 @@
+<div class="container general">
+  <div class="row">
+    <div class="card" style="width: 10rem;" ng-repeat="user in home.users">
+      <img class="card-img-top" src="{{user.avatar_url}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{user.login}}</h5>
+        <a id="{{user.login}}" href="#/followers/{{user.login}}" class="btn btn-primary user">Followers</a>
+      </div>
+    </div>
+  </div>
+</div>

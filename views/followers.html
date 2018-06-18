@@ -1,0 +1,17 @@
+
+
+<div class="container">
+
+  <br>
+  <a href="#/home">back</a>
+  <br>
+
+  <div class="row">
+    <ul class="list-group">
+      <li class="list-group-item"  ng-repeat="follower in followers.followers">
+        <img class="follower_img" src="{{follower.avatar_url}}" alt="{{follower.login}}">
+        {{follower.login}}
+      </li>
+    </ul>
+  </div>
+</div>

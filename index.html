@@ -310,9 +310,18 @@
 				color: hsla(212, 15.6%, 40%, 1);
 			}
 
-			.user-button:hover{
+			.yellow-color{
+				color : hsla(40, 119%, 67%, 1);
+			}
+
+			.link-followers{
 				text-decoration: underline;
 				cursor: pointer;
+				color: blue;
+			}
+
+			.link-followers:hover{
+				color: hsla(40, 119%, 67%, 1);
 			}
 
 			#list{
@@ -320,6 +329,10 @@
 				color: hsla(212, 15.6%, 30%, 1);
 				min-width: 550px;
 				margin: auto;
+			}
+
+			.modal-body{
+				font-size: 0.7em !important;
 			}
 		</style>
 	</head>
@@ -414,7 +427,7 @@
 			<div class="row no-gutters">
 				<div class="col-sm">
 					<ul id="list">
-						<li ng-repeat="user in users">{{user.id}} - {{user.login}} <a href="{{user.followers_url}}">{{user.followers_url}}</a></li>
+						<li ng-repeat="user in users">{{user.id}} - {{user.login}} <span class="link-followers" data-user-id="{{user.id}}" data-user-login="{{user.login}}">{{user.followers_url}}</span></li>
 					</ul>
 				</div>
 			</div>
@@ -427,7 +440,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="followersTitle">Followers from {{ user.login }}</h5>
+						<h5 class="modal-title" id="followersTitle">Followers from <span class="blue-bg yellow-color" style="padding: 10px;">{{ user.login }}</span></h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -435,7 +448,7 @@
 					
 					<div class="modal-body">
 						<ul>
-							{{ user.followers }}
+							<li ng-repeat="user in user.followers">{{user.id}} - {{user.login}} <span class="link-followers" data-user-id="{{user.id}}" data-user-login="{{user.login}}">{{user.followers_url}}</span></li>
 						</ul>
 					</div>
 

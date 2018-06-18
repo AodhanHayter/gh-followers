@@ -14,4 +14,22 @@ app.controller('fController', function($scope, $http) {
 	$http.get(url).then((response) => {
 		$scope.users = response.data;
 	})
+
+	$(function(){
+		$(document).on('click', '.link-followers', function(){
+			let followers_url = $(this).text();
+			let user = {
+				id: $(this).data('user-id'),
+				login: $(this).data('user-login'),
+				followers: null
+			}
+
+			$http.get(followers_url).then((response) => {
+				user.followers = response.data;
+
+				$scope.user = user;
+				$("#followersModal").modal({show: true});
+			});
+		});
+	});
 });

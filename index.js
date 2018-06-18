@@ -46,4 +46,32 @@ $(function(){
 	        scrollTop: $($.attr(this, 'href')).offset().top
 	    }, 500);
 	});
+
+	function copyToClipboard(containerid) {
+		if (document.selection) { 
+		    var range = document.body.createTextRange();
+		    range.moveToElementText(document.getElementById(containerid));
+		    range.select().createTextRange();
+
+		} else if (window.getSelection) {
+		    var range = document.createRange();
+		     range.selectNode(document.getElementById(containerid));
+		     window.getSelection().addRange(range);
+		     document.execCommand("copy");
+		}
+	}
+
+	$('#copy-button').on('click', function(){
+		  copyToClipboard('list');
+		  $('#alerta').slideDown();
+	});
+
+	$('#copy-button-secondary').on('click', function(){
+		  copyToClipboard('followers');
+		  $('#alerta').slideDown();
+	});
+
+	$('.close').on('click', function(){
+		$('#alerta').slideUp();
+	});
 });

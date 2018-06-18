@@ -1,15 +1,17 @@
 'use strict'
 
-const app = angular.module('followersApp', [])
+function user(){
+	this.id = null;
+	this.login = null;
+	this.followers_url = null; 
+}
 
-$(function(){
-	var url = 'https://api.github.com/users';
+let app = angular.module('followersApp', []);
 
-	$.get(url, null, function(users){
-		$('#list').empty();
+app.controller('fController', function($scope, $http) {
+	let url = 'https://api.github.com/users';
 
-		users.forEach(function(user){
-			$('#list').append('<li><div class="user-button" data-id-user="' + user.id + '" data-login="' + user.login + '" data-followers-url="' + user.followers_url + '" data-toggle="modal" data-target="#followersModal">' + user.id + ' - ' + user.login + '</div></li>');
-		})
-	});
+	$http.get(url).then((response) => {
+		$scope.users = response.data;
+	})
 });

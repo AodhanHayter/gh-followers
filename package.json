@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/YouHaveNoSkill/gh-followers/issues"
   },
-  "homepage": "https://github.com/YouHaveNoSkill/gh-followers#readme"
+  "homepage": "https://github.com/YouHaveNoSkill/gh-followers#readme",
+  "dependencies": {
+    "animejs": "^2.2.0"
+  }
 }

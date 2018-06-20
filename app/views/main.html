@@ -1,0 +1,38 @@
+<div id="fetchedusers">
+  <div class="row">
+  <div class="col-lg-4 follower" ng-repeat="user in $ctrl.users">
+    <img class="img-circle" ng-src="{{user.avatar_url}}" alt="Generic placeholder image" width="140" height="140">
+    <h2>{{user.login}}</h2>
+    <!-- <a class="btn btn-default" ng-link="['UserFollowers', {login: user.login}]" ng-class="{ selected: $ctrl.isSelected(user) }" role="button">View Followers »</a></p> -->
+    <a class="btn btn-default" ng-click="$ctrl.fetchFollowers(user.login)"  role="button">View Followers »</a></p>
+  </div><!-- /.col-lg-4 -->
+
+</div>
+</div>
+
+<div class="row" id="mainuser">
+  <div class="col-lg-4 col-lg-offset-4 follower" >
+    <img class="img-circle" ng-src="{{$ctrl.mainuser.avatar_url}}" alt="Generic placeholder image" width="140" height="140">
+    <h2>{{$ctrl.mainuser.login}}</h2>
+    <h2>Followers</h2>
+    <a class="btn btn-default" ng-click="$ctrl.goBack()" role="button">GO BACK</a></p>
+    <!-- <a class="btn btn-default" ui-sref="followers({ login: follower.login })  role="button">View Followers »</a> -->
+</p>
+  </div><!-- /.col-lg-4 -->
+</div>
+
+<div id="fetchedfollowers">
+  
+  <div class="row">
+  <div class="col-lg-4 follower" ng-repeat="follower in $ctrl.followers">
+    <img class="img-circle" ng-src="{{follower.avatar_url}}" alt="Generic placeholder image" width="140" height="140">
+    <h2>{{follower.login}}</h2>
+    <a class="btn btn-default" href="{{follower.html_url}}" target=_blank role="button">View Profile »</a></p>
+    <!-- <a class="btn btn-default" ui-sref="followers({ login: follower.login })  role="button">View Followers »</a> -->
+</p>
+  </div><!-- /.col-lg-4 -->
+</div>
+</div>
+
+
+

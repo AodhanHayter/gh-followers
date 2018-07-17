@@ -1,0 +1,50 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body,html{
+	height: 100%;
+}
+.main{
+	margin: 0 auto;
+	width: 90%;
+}
+.mtitle{
+	background-color: #47A085;
+	color: #fff;
+	margin: 25px auto;
+	padding: 15px 0;
+	text-align: center;
+	width: 93%;
+}
+.insert2 img, .follower img{
+	display: block;
+	margin: 0 auto;
+	width:85%;
+}
+.follower h4{
+	text-align: center;
+}
+.follower{
+	border:1px solid #cdcdcd;
+	cursor: pointer;
+	padding: 0px;
+	margin: 5px;
+	width: 24% !important;
+}
+.insert2{
+	border:1px solid #cdcdcd;
+	cursor: pointer;
+	padding: 0px;
+	margin: 2px;
+	width: 32% !important;
+}
+.insert2 h4{
+	font-size: 1em;
+	text-align: center;
+}
+.modal-title{
+	font-size: 2em;
+	text-align: center;
+}

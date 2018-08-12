@@ -1,0 +1,39 @@
+<div class="row jumbotron">
+    <div class="col-md-11">
+        <h1>
+            Github Users
+        </h1>
+    </div>
+</div>
+<div class="container col-md-11">
+  <div ng-if="vm.users == null">
+                No users
+  </div>
+        
+   <div ng-if="vm.users != null">
+        <div class="row bg-info">
+                    <div class="col-md-6">
+                        <h4>Picture</h4>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>User Name</h4>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Followers</h4>
+                </div>
+        
+         </div>
+         <div class="row bg-success" ng-repeat="user in vm.users">
+                    <div class="col-md-6">
+                        <img class="img-responsive" ng-src="{{user.avatar_url}}" title="{{user.login}}" width="460">
+                    </div>
+                    <div class="col-md-3">
+                        <a ui-sref='user({userId: user.login})'> {{user.login}}</a>
+                       
+                    </div>
+                    <div class="col-md-3">
+                      <p>please click on User Name to see details</p>
+                    </div>
+        
+          </div>
+ </div>

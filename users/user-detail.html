@@ -1,0 +1,22 @@
+
+<div>
+   <div class="row bg-danger">
+        <div class="col-md-12">
+            <hr />
+            <followers-user></followers-user>
+            <br />
+            <ui-view></ui-view>
+        </div> 
+    </div>
+    <div class="row bg-success text-center col-md-12"><h3>You are checking <strong><em>{{vm.userId}}</em></strong>   followers!</h3></div>
+    <div class="row bg-dark text-center" ng-repeat="follower in vm.followers">
+        <div class="col-md-6">
+            <img class="img-responsive" ng-src="{{follower.avatar_url}}" title="{{follower.login}}" width="460">
+        </div>
+        <div class="col-md-6">
+            {{follower.login}}
+        </div>
+       
+    </div>
+</div>
+    

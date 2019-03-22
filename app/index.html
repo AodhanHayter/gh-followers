@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="followersApp" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Followers</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+  <link rel="stylesheet" href="./components/navBar/navBar.css">
+
+  <!-- Angular Elements -->
+  <script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-aria/angular-aria.min.js"></script>
+	<script src="lib/angular-animate/angular-animate.min.js"></script>
+	<script src="lib/angular-messages/angular-messages.min.js"></script>
+	<script src="lib/angular-material/angular-material.min.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  
+  <!-- App Elements -->
+  <script src="index.js"></script>
+
+  <!-- Services -->
+  <script src="shared/services/users/users.js"></script>
+
+  <!-- Modules -->
+  <script src="components/navBar/navBar.module.js"></script>
+  <script src="components/dashboard/dashboard.module.js"></script>
+
+  <!-- Components -->
+  <script src="components/navBar/navBar.component.js"></script>
+  <script src="components/dashboard/dashboard.component.js"></script>
+  
+  <!-- Controllers -->
+  <script src="components/dashboard/dashboard.controller.js"></script>
+
+</head>
+<body>
+  <nav-bar></nav-bar>
+  <div ng-view></div>
+</body>
+</html>

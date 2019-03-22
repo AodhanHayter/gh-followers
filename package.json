@@ -1,0 +1,28 @@
+{
+  "name": "gh-followers",
+  "version": "1.0.0",
+  "description": "Coding test for BoomSourcing using Github API",
+  "main": "index.js",
+  "repository": "https://github.com/AodhanHayter/gh-followers.git",
+  "author": "Pablo <luis.pablo.lopez.lopez@uabc.edu.mx>",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.7.5",
+    "angular-animate": "^1.7.7",
+    "angular-aria": "^1.7.7",
+    "angular-loader": "^1.7.5",
+    "angular-material": "^1.1.12",
+    "angular-messages": "^1.7.7",
+    "angular-route": "^1.7.5"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "http-server": "^0.11.1"
+  },
+  "scripts": {
+    "postinstall": "yarn run copy-libs",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" app/lib -C",
+    "prestart": "yarn install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app"
+  }
+}

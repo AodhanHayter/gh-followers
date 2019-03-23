@@ -10,7 +10,10 @@
         </md-select>
     </md-input-container>
 </div>
-<md-list>
+<div ng-if="!$ctrl.users && !$ctrl.repositories" layout="row" layout-sm="column" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<md-list ng-if="$ctrl.users || $ctrl.repositories">
     <!-- List Item for User List -->
     <md-list-item ng-if="$ctrl.type === 'users'" class="md-2-line" ng-repeat="user in $ctrl.users | filter: $ctrl.search | orderBy: $ctrl.sortOption" ng-href="#!/users/{{ user.login }}">
         <img ng-src="{{ user.avatar_url }}" class="md-avatar" alt="{{ user.login }}" />

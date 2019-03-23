@@ -4,3 +4,6 @@ app/lib
 
 # .DS_STORE files
 .DS_STORE
+
+# Logs
+yarn-error.log

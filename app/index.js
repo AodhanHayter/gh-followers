@@ -5,7 +5,8 @@ const app = angular.module('followersApp', [
 	'ngMaterial',
     'ngMessages',
     'navBar',
-    'dashboard'
+    'dashboard',
+    'usersList'
 ])
 
 app.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {

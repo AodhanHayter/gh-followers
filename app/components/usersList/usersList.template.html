@@ -1,0 +1,10 @@
+<h3>Here is a list of Github Users!</h3>
+<md-list>
+    <md-list-item class="md-2-line" ng-repeat="user in $ctrl.users" ng-click="$ctrl.openDetails(user)">
+        <img ng-src="{{ user.avatar_url }}" class="md-avatar" alt="{{ user.login }}" />
+        <div class="md-list-item-text">
+            <h3>{{ user.login }}</h3>
+            <p>{{ user.html_url }}</p>
+        </div>
+    </md-list-item>
+</md-list>

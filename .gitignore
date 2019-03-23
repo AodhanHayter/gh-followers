@@ -7,3 +7,6 @@ app/lib
 
 # Logs
 yarn-error.log
+
+# Environment file
+env.js

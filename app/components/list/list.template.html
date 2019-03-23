@@ -1,0 +1,20 @@
+<md-list>
+    <!-- List Item for User List -->
+    <md-list-item ng-if="$ctrl.type === 'users'" class="md-2-line" ng-repeat="user in $ctrl.users" ng-href="#!/users/{{ user.login }}">
+        <img ng-src="{{ user.avatar_url }}" class="md-avatar" alt="{{ user.login }}" />
+        <div class="md-list-item-text">
+            <h3>{{ user.login }}</h3>
+            <p>{{ user.html_url }}</p>
+        </div>
+    </md-list-item>
+
+    <!-- List Item for Repositories List -->
+    <md-list-item ng-if="$ctrl.type === 'repositories'" class="md-2-line" ng-repeat="repository in $ctrl.repositories">
+        <div class="md-list-item-text">
+            <h3>{{ repository.name }}</h3>
+            <h4>{{ repository.html_url }}</h4>
+            <p>{{ repository.forks_count }} Forks | {{ repository.open_issues_count }} Issues | {{ repository.watchers_count }} Watchers</p>
+        </div>
+        <md-button class="md-secondary" ng-click="$ctrl.openUrl(repository.html_url)">Open Repository</md-button>
+    </md-list-item>
+</md-list>

@@ -1,0 +1,35 @@
+<md-card>
+    <md-card-header class="hide-overflow" layout-gt-xs="row" layout-align="start center">
+        <div>
+            <img class="header-avatar" ng-src="{{ $ctrl.user.avatar_url }}" alt="{{ $ctrl.user.login }}" />
+        </div>
+        <div class="p-x-20">
+            <h3>{{ $ctrl.user.login }}</h3>
+            <p ng-if="$ctrl.user.bio">{{ $ctrl.user.bio }}</p>
+            <p ng-if="$ctrl.user.blog">{{ $ctrl.user.blog }}</p>
+        </div>
+    </md-card-header>
+    <md-card-content>
+        <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always">
+            <md-tab label="{{ $ctrl.user.followers }} followers">
+                <md-content class="md-padding">
+                    <list type="users" users="$ctrl.followers"></list>
+                </md-content>
+            </md-tab>
+            <md-tab label="{{ $ctrl.user.following }} following">
+                <md-content class="md-padding">
+                    <list type="users" users="$ctrl.followings"></list>
+                </md-content>
+            </md-tab>
+            <md-tab label="{{ $ctrl.user.public_repos }} repositories">
+                <md-content class="md-padding">
+                    <list type="repositories" repositories="$ctrl.repositories"></list>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button ng-click="$ctrl.openUrl($ctrl.user.html_url)">Open in Github</md-button>
+        <md-button href="#!/users">Back to list</md-button>
+    </md-card-actions>
+</md-card>

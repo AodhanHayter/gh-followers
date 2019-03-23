@@ -1,1 +1,1 @@
-angular.module('userDetails', []);
+angular.module('userDetails', ['list']);

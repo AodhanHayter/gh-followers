@@ -13,7 +13,6 @@ const app = angular.module('followersApp', [
     'ngMessages',
     'navBar',
     'users',
-    'list',
     'userDetails'
 ])
 

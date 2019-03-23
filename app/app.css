@@ -10,3 +10,7 @@
 .hide-overflow {
     overflow: hidden;
 }
+
+.full-width {
+    width: 100%;
+}

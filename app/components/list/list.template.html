@@ -1,10 +1,10 @@
-<md-input-container ng-if="$ctrl.withSearch">
+<md-input-container ng-if="$ctrl.withSearch" class="full-width">
     <label>Search</label>
     <input type="text" ng-model="$ctrl.search">
 </md-input-container>
 <md-list>
     <!-- List Item for User List -->
-    <md-list-item ng-if="$ctrl.type === 'users'" class="md-2-line" ng-repeat="user in $ctrl.users | filter: $ctrl.search" ng-href="#!/users/{{ user.login }}">
+    <md-list-item ng-if="$ctrl.type === 'users'" class="md-2-line" ng-repeat="user in $ctrl.users | filter: $ctrl.search | orderBy: $ctrl.sortOption" ng-href="#!/users/{{ user.login }}">
         <img ng-src="{{ user.avatar_url }}" class="md-avatar" alt="{{ user.login }}" />
         <div class="md-list-item-text">
             <h3>{{ user.login }}</h3>

@@ -2,5 +2,5 @@
     // Initializing env
     window.__env = window.__env || {};
     // Github Api Key
-    window.__env.apiUrl = 'Here goes your github api key';
+    window.__env.githubApiKey = 'Here goes your github api key';
 }(this));

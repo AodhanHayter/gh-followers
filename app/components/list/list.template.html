@@ -1,6 +1,10 @@
+<md-input-container ng-if="$ctrl.withSearch">
+    <label>Search</label>
+    <input type="text" ng-model="$ctrl.search">
+</md-input-container>
 <md-list>
     <!-- List Item for User List -->
-    <md-list-item ng-if="$ctrl.type === 'users'" class="md-2-line" ng-repeat="user in $ctrl.users" ng-href="#!/users/{{ user.login }}">
+    <md-list-item ng-if="$ctrl.type === 'users'" class="md-2-line" ng-repeat="user in $ctrl.users | filter: $ctrl.search" ng-href="#!/users/{{ user.login }}">
         <img ng-src="{{ user.avatar_url }}" class="md-avatar" alt="{{ user.login }}" />
         <div class="md-list-item-text">
             <h3>{{ user.login }}</h3>
@@ -9,7 +13,7 @@
     </md-list-item>
 
     <!-- List Item for Repositories List -->
-    <md-list-item ng-if="$ctrl.type === 'repositories'" class="md-2-line" ng-repeat="repository in $ctrl.repositories">
+    <md-list-item ng-if="$ctrl.type === 'repositories'" class="md-2-line" ng-repeat="repository in $ctrl.repositories | filter: $ctrl.search">
         <div class="md-list-item-text">
             <h3>{{ repository.name }}</h3>
             <h4>{{ repository.html_url }}</h4>

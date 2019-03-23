@@ -6,6 +6,7 @@ angular
         bindings: {
             type: "@",
             users: "=",
-            repositories: "="
+            repositories: "=",
+            withSearch: "<"
         }
     });

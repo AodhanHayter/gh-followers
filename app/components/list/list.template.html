@@ -16,7 +16,7 @@
 <md-list ng-if="$ctrl.users || $ctrl.repositories">
     <!-- List Item for User List -->
     <md-list-item ng-if="$ctrl.type === 'users'" class="md-2-line" ng-repeat="user in $ctrl.users | filter: $ctrl.search | orderBy: $ctrl.sortOption" ng-href="#!/users/{{ user.login }}">
-        <img ng-src="{{ user.avatar_url | resizeImg:100 }}" class="md-avatar" alt="{{ user.login }}" />
+        <img ng-src="{{ user.avatar_url | resizeImg:40 }}" class="md-avatar" alt="{{ user.login }}" />
         <div class="md-list-item-text">
             <h3>{{ user.login }}</h3>
             <p>{{ user.html_url }}</p>

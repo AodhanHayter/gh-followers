@@ -28,6 +28,15 @@ or
 npm run start
 ````
 
+## Run tests
+````
+yarn test-single-run
+````
+or
+````
+npm run test-single-run
+````
+
 # Followers
 
 * Create a small Angular.js application that fetches users from github's public api and displays a user's followers.

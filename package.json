@@ -16,13 +16,21 @@
     "angular-route": "^1.7.5"
   },
   "devDependencies": {
+    "angular-mocks": "^1.7.5",
     "cpx": "^1.5.0",
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "jasmine-core": "^3.3.0",
+    "karma": "^3.1.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-jasmine": "^2.0.1"
   },
   "scripts": {
     "postinstall": "yarn run copy-libs",
     "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" app/lib -C",
     "prestart": "yarn install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app"
+    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "test": "karma start karma.conf.js",
+    "test-single-run": "yarn test --single-run"
   }
 }

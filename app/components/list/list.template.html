@@ -1,0 +1,35 @@
+<div ng-if="$ctrl.withSearch" layout-gt-xs="row" layout-align="start start">
+    <md-input-container class="full-width">
+        <label>Search</label>
+        <input type="text" ng-model="$ctrl.search">
+    </md-input-container>
+    <md-input-container class="full-width">
+        <label>Sort By</label>
+        <md-select ng-model="$ctrl.sortOption">
+            <md-option value="login">Username</md-option>
+        </md-select>
+    </md-input-container>
+</div>
+<div ng-if="!$ctrl.users && !$ctrl.repositories" layout="row" layout-sm="column" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<md-list ng-if="$ctrl.users || $ctrl.repositories">
+    <!-- List Item for User List -->
+    <md-list-item ng-if="$ctrl.type === 'users'" class="md-2-line" ng-repeat="user in $ctrl.users | filter: $ctrl.search | orderBy: $ctrl.sortOption" ng-href="#!/users/{{ user.login }}">
+        <img ng-src="{{ user.avatar_url | resizeImg:40 }}" class="md-avatar" alt="{{ user.login }}" />
+        <div class="md-list-item-text">
+            <h3>{{ user.login }}</h3>
+            <p>{{ user.html_url }}</p>
+        </div>
+    </md-list-item>
+
+    <!-- List Item for Repositories List -->
+    <md-list-item ng-if="$ctrl.type === 'repositories'" class="md-2-line" ng-repeat="repository in $ctrl.repositories | filter: $ctrl.search">
+        <div class="md-list-item-text">
+            <h3>{{ repository.name }}</h3>
+            <h4>{{ repository.html_url }}</h4>
+            <p>{{ repository.forks_count }} Forks | {{ repository.open_issues_count }} Issues | {{ repository.watchers_count }} Watchers</p>
+        </div>
+        <md-button class="md-secondary" ng-click="$ctrl.openUrl(repository.html_url)">Open Repository</md-button>
+    </md-list-item>
+</md-list>

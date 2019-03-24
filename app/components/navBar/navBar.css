@@ -1,0 +1,12 @@
+.nav-container {
+	float: left;
+	margin: 20px;
+}
+
+.nav-container a {
+	width: 80%;
+	font-size: 1.6em;
+	text-align: left;
+	text-decoration: none;
+	color: white;
+}

@@ -1,3 +1,42 @@
+# Instructions to run project
+
+## Create env.js file
+
+This env was created to use the Github Api Key so calls to the API won't be limited, you can get yours from here: [Github Settings](https://github.com/settings/tokens)
+
+⚠️ After this step add your Github Api Key to env.js ⚠️
+
+````
+cd app && cp env.example.js env.js
+````
+
+## Install dependencies
+````
+cd .. && yarn install
+````
+or
+````
+cd .. && npm install
+````
+
+## Start application
+````
+yarn start
+````
+or
+````
+npm run start
+````
+
+## Run tests
+````
+yarn test-single-run
+````
+or
+````
+npm run test-single-run
+````
+
 # Followers
 
 * Create a small Angular.js application that fetches users from github's public api and displays a user's followers.

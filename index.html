@@ -18,7 +18,7 @@
 	</head>
 	
 	<body ng-controller = 'followersController'>  
-		
+		<!-- Header -->
 		<header>
 			<div class="container">
 				<div class="row">
@@ -28,7 +28,9 @@
 				</div>
 			</div>
 		</header>
+		<!-- /Header -->
 
+		<!-- Users -->
 		<section class="users-section">
 			<div class="container">
 				<div class="row">
@@ -49,8 +51,37 @@
 				</div>	
 			</div>
 		</section>
+		<!-- /Users -->
 
-		
+		<!-- Modal followers-->
+		<div class="modal modal-followers fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2 class="modal-title">{{userSelected}} followers</h2>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-sm-3 col-xs-12" ng-repeat="follower in followers" data-toggle="modal" data-target="#myModal">
+								<div class="follower-content">
+									<figure>
+										<img class="img-avatar img-responsive" src="{{follower.avatar_url}}" alt="{{follower.login}}" />
+									</figure>
+									<h3 class="follower-name">
+										{{follower.login}}
+									</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default btn-modal-close" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Modal followers -->
 
 		<script src="https://code.angularjs.org/1.5.3/angular.js"></script>
 		<script src="index.js"></script>

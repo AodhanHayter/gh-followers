@@ -29,6 +29,7 @@ a:focus { text-decoration: none !important; }
 
 .users-section .user-content .img-avatar { 
     width: 100%; 
+    border-radius: 80%;
 }
 
 .users-section .user-content h2 { margin: 10px 0 30px; }
@@ -41,3 +42,66 @@ a:focus { text-decoration: none !important; }
     text-align: center;
 }
 
+.modal-followers .modal-header { background-color: #283e4a; }
+
+.modal-followers .modal-header .modal-title {
+    color: white;
+    text-align: center;
+}
+
+.modal-followers .modal-header .close {
+    font-size: 30px;
+    color: white;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    opacity: 1;
+}
+
+.modal-followers .modal-header .close:hover { transform: scale(1.1); }
+
+.modal-followers .follower-content .img-avatar {  
+    width: 100%;
+    border-radius: 80%;
+}
+
+.modal-followers .follower-content .follower-name {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #283e4a;
+    text-align: center;
+}
+
+.modal-followers .modal-footer .btn-modal-close {
+    display: block;
+    margin: 0 auto;
+    width: 130px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 0 0 transparent;
+    background-color: #283e4a;
+    background-image: none;
+    border: 1px solid #283e4a;
+    border-radius: 10px;
+    box-shadow: none;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+.modal-followers .modal-footer .btn-modal-close:hover {
+    color: #283e4a;
+    background-color: white;
+    transform: scale(1.1);
+}
+
+.modal-followers .modal-header .close:focus,
+.modal-followers .modal-header .close:active,
+.modal-followers .modal-header .close:hover,
+.modal-followers .modal-footer .btn-modal-close:focus,
+.modal-followers .modal-footer .btn-modal-close:active,
+.modal-followers .modal-footer .btn-modal-close:hover { outline: 0; }

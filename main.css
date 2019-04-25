@@ -1,21 +1,43 @@
-p,
-a,
-li {  
-    font-size: 14px;
-    color: black;
-}
+html,
+body { font-family: 'Varela Round', sans-serif !important; }
 
 a:active, 
 a:hover,
 a:focus { text-decoration: none !important; }
 
-.main-title {
-    margin: 30px 0;
+.git-logo {
+    background-image: url(/assets/git-logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.header {
+    margin-bottom: 50px;
+    background-color: #283e4a;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.header-content .git-logo {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+}
+
+.header-content .main-title {
+    display: inline-block;
+    margin: 7px 27px;
     font-size: 48px;
     font-weight: 900;
-    color: #283e4a;
+    color: white;
     text-align: center;
-    text-decoration: underline;
+    border-width: 0 0 4px;
+    border-style: solid;
 }
 
 .users-section .user-content {
@@ -49,6 +71,15 @@ a:focus { text-decoration: none !important; }
     text-align: center;
 }
 
+.modal-followers .modal-header .git-logo {
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
 .modal-followers .modal-header .close {
     font-size: 30px;
     color: white;
@@ -79,7 +110,7 @@ a:focus { text-decoration: none !important; }
     width: 130px;
     height: 40px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     color: white;
     text-shadow: 0 0 0 transparent;
     background-color: #283e4a;

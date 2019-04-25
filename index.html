@@ -1,14 +1,103 @@
 <!DOCTYPE html>
 <html ng-app="followersApp" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Followers</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-</head>
-<body>
-  <h2>Followers</h2>
-  <script src="https://code.angularjs.org/1.5.3/angular.js"></script>
-  <script src="index.js"></script>
-</body>
+	<head>
+		<!-- meta -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Followers</title>
+
+		<!-- scripts -->
+		<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	</head>
+	
+	<body ng-controller = 'followersController'>  
+		<!-- Header -->
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="header-content">
+							<div class="git-logo"></div>
+							<h1 class="main-title">Users</h1>
+							<div class="git-logo"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- /Header -->
+
+		<!-- Users -->
+		<section class="users-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-xs-12" ng-repeat="user in users" ng-click="followersList(user.login)" data-toggle="modal" data-target="#myModal">
+						<div class="user-content">
+							<a href="javascript:void(0)">
+							<figure>
+								<img class="img-avatar img-responsive" src="{{user.avatar_url}}" alt="{{user.login}}" />
+							</figure>
+							</a>
+							<h2>
+							<a href="javascript:void(0)">
+								{{user.login}}
+							</a>
+							</h2>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</section>
+		<!-- /Users -->
+
+		<!-- Footer -->
+		<footer class="footer">
+			<p class="copy-txt">&copy; 2019 GitHub, Inc.</p>
+		</footer>
+		<!-- /Footer -->
+
+		<!-- Modal followers-->
+		<div class="modal modal-followers fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2 class="modal-title">
+							<div class="git-logo"></div>
+							{{userSelected}} followers
+						</h2>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-sm-3 col-xs-12" ng-repeat="follower in followers" data-toggle="modal" data-target="#myModal">
+								<div class="follower-content">
+									<figure>
+										<img class="img-avatar img-responsive" src="{{follower.avatar_url}}" alt="{{follower.login}}" />
+									</figure>
+									<h3 class="follower-name">
+										{{follower.login}}
+									</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default btn-modal-close" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Modal followers -->
+
+		<script src="https://code.angularjs.org/1.5.3/angular.js"></script>
+		<script src="index.js"></script>
+	</body>
 </html>

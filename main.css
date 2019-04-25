@@ -1,0 +1,43 @@
+p,
+a,
+li {  
+    font-size: 14px;
+    color: black;
+}
+
+a:active, 
+a:hover,
+a:focus { text-decoration: none !important; }
+
+.main-title {
+    margin: 30px 0;
+    font-size: 48px;
+    font-weight: 900;
+    color: #283e4a;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.users-section .user-content {
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+.users-section .user-content:hover { transform: scale(1.1); }
+
+.users-section .user-content .img-avatar { 
+    width: 100%; 
+}
+
+.users-section .user-content h2 { margin: 10px 0 30px; }
+
+.users-section .user-content h2 a {
+    display: block; 
+    font-size: 20px;
+    font-weight: 600;
+    color: #283e4a;
+    text-align: center;
+}
+

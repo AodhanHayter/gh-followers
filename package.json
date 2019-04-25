@@ -1,0 +1,12 @@
+{
+  "name": "followers-app",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Application to fetch users from github's public api and displays a user's followers",
+  "repository": "https://github.com/AodhanHayter/gh-followers",
+  "license": "MIT",
+  "scripts": {
+    "start": "angular-http-server -p 9000"
+  },
+  "dependencies": {}
+}

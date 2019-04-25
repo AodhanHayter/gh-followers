@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html ng-app="followersApp" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Followers</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-</head>
-<body>
-  <h2>Followers</h2>
-  <script src="https://code.angularjs.org/1.5.3/angular.js"></script>
-  <script src="index.js"></script>
-</body>
+	<head>
+		<!-- meta -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Followers</title>
+
+		<!-- scripts -->
+		<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	</head>
+	
+	<body ng-controller = 'followersController'>  
+		
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1 class="main-title">Followers</h1>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="users-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-xs-12" ng-repeat="user in users" ng-click="followersList(user.login)" data-toggle="modal" data-target="#myModal">
+						<div class="user-content">
+							<a href="javascript:void(0)">
+							<figure>
+								<img class="img-avatar img-responsive" src="{{user.avatar_url}}" alt="{{user.login}}" />
+							</figure>
+							</a>
+							<h2>
+							<a href="javascript:void(0)">
+								{{user.login}}
+							</a>
+							</h2>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</section>
+
+		
+
+		<script src="https://code.angularjs.org/1.5.3/angular.js"></script>
+		<script src="index.js"></script>
+	</body>
 </html>
